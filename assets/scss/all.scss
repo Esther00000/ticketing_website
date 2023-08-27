@@ -1,11 +1,33 @@
+// 字體
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@400;700&family=Yeseva+One&display=swap');
+// icon
+@import '../icofont/icofont.min.css';
+
+
 @import "../../node_modules/bootstrap/scss/functions";
 @import './utils/variables';
 
 
-@import './layout/header.scss';
-@import './layout/footer.scss';
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/root";
+@import "../../node_modules/bootstrap/scss/utilities";
+
+@import "./utils/mixin";
+@import "./utils/utilities";
+@import "./utils/helper";
+@import "./utils/font";
 
 
-@import './pages/index.scss';
+
 
 @import "../../node_modules/bootstrap";
+
+/* 自訂義元件 */
+@import "./utils/btn";
+@import "./utils/link";
+@import "./utils/comp";
+
+/* pages */
+@import './pages/index.scss';
+

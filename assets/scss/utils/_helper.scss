@@ -1,0 +1,59 @@
+.logo {
+  width: 40px;
+  height: 40px;
+  @include desktop {
+    width: 53px;
+    height: 53px;
+  }
+}
+.img-icon {
+  width: 40px;
+  height: 40px;
+  @include desktop {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.img-icon-sm {
+  width: 20px;
+  height: 20px;
+  @include desktop {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.card-img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  @include desktop {
+    height: 255px;
+  }
+}
+
+.info-img {
+  width: 100%;
+  height: 158px;
+  object-fit: cover;
+  @include pad {
+    height: 351px;
+  }
+  @include desktop {
+    height: 327px;
+  }
+}
+.album-img {
+  height: 267px;
+  object-fit: cover;
+  @include pad {
+    height: 274px;
+  }
+}
+
+.rotate-4 {
+  transform: translate(-50%,-50%) rotate(4deg);
+}
+
+

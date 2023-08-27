@@ -1,0 +1,18 @@
+.Yeseva-One {
+  font-family: 'Yeseva One';
+}
+.Noto-Serif {
+  font-family: Noto Serif TC;
+}
+
+.title {
+  padding: 16px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid $primary;
+  @include pad {
+    padding: 24px 32px;
+    border-width: 3px;
+  }
+}

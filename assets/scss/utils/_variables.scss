@@ -298,26 +298,32 @@ $cyans: (
 // fusv-enable
 
 // scss-docs-start theme-color-variables
-$primary:       $blue !default;
-$secondary:     $gray-600 !default;
+$primary:       #030303 !default;
+$secondary:     #FBFF22 !default;
+$third:       #C96464 !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
 $danger:        $red !default;
 $light:         $gray-100 !default;
 $dark:          $gray-900 !default;
+$black:          $black !default;
+$background:    #F3F1E5 !default;
+
 // scss-docs-end theme-color-variables
 
 // scss-docs-start theme-colors-map
 $theme-colors: (
   "primary":    $primary,
   "secondary":  $secondary,
+  "third":      $third,
   "success":    $success,
   "info":       $info,
   "warning":    $warning,
   "danger":     $danger,
   "light":      $light,
-  "dark":       $dark
+  "dark":       $dark,
+  "black":      $black,
 ) !default;
 // scss-docs-end theme-colors-map
 
@@ -335,7 +341,7 @@ $escaped-characters: (
 // Quickly modify global styling by enabling or disabling optional features.
 
 $enable-caret:                true !default;
-$enable-rounded:              true !default;
+$enable-rounded:              false !default; //true
 $enable-shadows:              false !default;
 $enable-gradients:            false !default;
 $enable-transitions:          true !default;
@@ -374,11 +380,18 @@ $gradient: linear-gradient(180deg, rgba($white, .15), rgba($white, 0)) !default;
 $spacer: 1rem !default;
 $spacers: (
   0: 0,
-  1: $spacer * .25,
-  2: $spacer * .5,
-  3: $spacer,
-  4: $spacer * 1.5,
-  5: $spacer * 3,
+  1: $spacer * .25, //4
+  2: $spacer * .5, // 8
+  3: $spacer * .75,  //12 
+  4: $spacer, //16
+  5: $spacer * 1.25, // 20
+  6: $spacer * 1.5, // 24
+  8: $spacer * 2, // 32
+  9: $spacer * 2.25,  //36
+  10: $spacer * 2.5,  //40
+  12: $spacer * 3,  //48
+  14: $spacer * 3.5,  //56
+  15: $spacer * 3.75,  //60
 ) !default;
 // scss-docs-end spacer-variables-maps
 
@@ -389,6 +402,7 @@ $spacers: (
 // scss-docs-start position-map
 $position-values: (
   0: 0,
+  5: 5%,
   50: 50%,
   100: 100%
 ) !default;
@@ -398,7 +412,7 @@ $position-values: (
 //
 // Settings for the `<body>` element.
 
-$body-bg:                   $white !default;
+$body-bg:                   $background !default;
 $body-color:                $gray-900 !default;
 $body-text-align:           null !default;
 
@@ -407,10 +421,10 @@ $body-text-align:           null !default;
 // Style anchor elements.
 
 $link-color:                              $primary !default;
-$link-decoration:                         underline !default;
+$link-decoration:                         none !default;//underline
 $link-shade-percentage:                   20% !default;
 $link-hover-color:                        shift-color($link-color, $link-shade-percentage) !default;
-$link-hover-decoration:                   null !default;
+$link-hover-decoration:                   underline !default;
 
 $stretched-link-pseudo-element:           after !default;
 $stretched-link-z-index:                  1 !default;
@@ -419,7 +433,7 @@ $stretched-link-z-index:                  1 !default;
 //
 // Style p element.
 
-$paragraph-margin-bottom:   1rem !default;
+$paragraph-margin-bottom:   0 !default; //1rem
 
 
 // Grid breakpoints
@@ -540,7 +554,7 @@ $aspect-ratios: (
 
 // scss-docs-start font-variables
 // stylelint-disable value-keyword-case
-$font-family-sans-serif:      system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-sans-serif:      'Noto Sans TC','Noto Serif TC','Yeseva One', -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 $font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 // stylelint-enable value-keyword-case
 $font-family-base:            var(--#{$prefix}font-sans-serif) !default;
@@ -550,8 +564,15 @@ $font-family-code:            var(--#{$prefix}font-monospace) !default;
 // $font-size-base affects the font size of the body text
 $font-size-root:              null !default;
 $font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
-$font-size-sm:                $font-size-base * .875 !default;
-$font-size-lg:                $font-size-base * 1.25 !default;
+$font-size-sm:                $font-size-base * .875 !default; //14
+$font-size-md:                $font-size-base * 1.125 !default; // custom
+$font-size-lg:                $font-size-base * 1.25 !default; // $font-size-base * 1.25 custom
+$font-size-l:                $font-size-base * 3 !default; // custom
+$font-size-xl:                $font-size-base * 3.75 !default; // custom
+$font-size-xxl:                $font-size-base * 4 !default; // custom
+
+
+
 
 $font-weight-lighter:         lighter !default;
 $font-weight-light:           300 !default;
@@ -576,17 +597,22 @@ $h6-font-size:                $font-size-base !default;
 
 // scss-docs-start font-sizes
 $font-sizes: (
-  1: $h1-font-size,
-  2: $h2-font-size,
-  3: $h3-font-size,
-  4: $h4-font-size,
-  5: $h5-font-size,
-  6: $h6-font-size
+  1: $h1-font-size, //40
+  2: $h2-font-size, //32
+  3: $h3-font-size, //28
+  4: $h4-font-size, //24
+  5: $h5-font-size, //20
+  6: $h6-font-size, // 16
+  "sm": $font-size-sm, //14
+  "md": $font-size-md, // 18
+  "lg": $font-size-l,
+  "xl": $font-size-xl,
+  "xxl": $font-size-xxl,
 ) !default;
 // scss-docs-end font-sizes
 
 // scss-docs-start headings-variables
-$headings-margin-bottom:      $spacer * .5 !default;
+$headings-margin-bottom:      0 !default; // $spacer * .5
 $headings-font-family:        null !default;
 $headings-font-style:         null !default;
 $headings-font-weight:        500 !default;
@@ -596,12 +622,12 @@ $headings-color:              null !default;
 
 // scss-docs-start display-headings
 $display-font-sizes: (
-  1: 5rem,
-  2: 4.5rem,
-  3: 4rem,
-  4: 3.5rem,
-  5: 3rem,
-  6: 2.5rem
+  1: 5rem, //80
+  2: 4.5rem, //72
+  3: 4rem, //64
+  4: 3.5rem, //56
+  5: 3rem, //48
+  6: 2.5rem //40
 ) !default;
 
 $display-font-family: null !default;
@@ -723,7 +749,7 @@ $input-btn-line-height:       $line-height-base !default;
 
 $input-btn-focus-width:         .25rem !default;
 $input-btn-focus-color-opacity: .25 !default;
-$input-btn-focus-color:         rgba($component-active-bg, $input-btn-focus-color-opacity) !default;
+$input-btn-focus-color:         rgba($component-active-bg, $input-btn-focus-color-opacity) !default; 
 $input-btn-focus-blur:          0 !default;
 $input-btn-focus-box-shadow:    0 0 $input-btn-focus-blur $input-btn-focus-width $input-btn-focus-color !default;
 
@@ -839,7 +865,7 @@ $input-border-radius-sm:                $border-radius-sm !default;
 $input-border-radius-lg:                $border-radius-lg !default;
 
 $input-focus-bg:                        $input-bg !default;
-$input-focus-border-color:              tint-color($component-active-bg, 50%) !default;
+$input-focus-border-color:              tint-color($component-active-bg, 50%) !default; 
 $input-focus-color:                     $input-color !default;
 $input-focus-width:                     $input-btn-focus-width !default;
 $input-focus-box-shadow:                $input-btn-focus-box-shadow !default;
@@ -1375,9 +1401,9 @@ $toast-header-border-color:         rgba($black, .05) !default;
 // Badges
 
 // scss-docs-start badge-variables
-$badge-font-size:                   .75em !default;
+$badge-font-size:                   $font-size-sm !default; //.75em
 $badge-font-weight:                 $font-weight-bold !default;
-$badge-color:                       $white !default;
+$badge-color:                       $primary !default; //$white
 $badge-padding-y:                   .35em !default;
 $badge-padding-x:                   .65em !default;
 $badge-border-radius:               $border-radius !default;

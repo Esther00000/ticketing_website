@@ -1,0 +1,28 @@
+.nav-link {
+  color: $primary;
+  &:hover {
+    color: #9C9E18;
+  }
+}
+
+
+.hover-unstyled:hover {
+  text-decoration: none;
+}
+
+
+.custom-hover:hover {
+  position: relative;
+  text-decoration: none;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 29px;
+    height: 29px;
+    background-color: $secondary;
+    border-radius: 50%;
+    left: -.75rem;
+    top: -.25rem;
+    z-index: -1;
+  }
+}

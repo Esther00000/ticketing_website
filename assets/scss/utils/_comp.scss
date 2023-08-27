@@ -1,0 +1,25 @@
+.custom-badge {
+  box-shadow: 4px 0px 0px 0px $primary inset;
+  &:hover {
+    box-shadow: 4px 0px 0px 0px $secondary inset;
+    text-decoration: none;
+    background-color: $primary;
+    color: $white;
+  }
+}
+
+.page-item {
+  width: 40px;
+  height: 40px;
+  border: 1px solid $primary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 4px;
+  font-family: "Noto Serif TC";
+  font-weight: bold;
+  &:hover {
+    background-color: $primary;
+    color: $secondary;
+  }
+}
