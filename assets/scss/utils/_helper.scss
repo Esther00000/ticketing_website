@@ -56,4 +56,9 @@
   transform: translate(-50%,-50%) rotate(4deg);
 }
 
-
+.modal-dialog {
+  max-width: auto;
+  @include desktop {
+    min-width: 636px;
+  }
+}
